@@ -73,7 +73,6 @@ class MagicAdapter : RecyclerView.Adapter<ItemViewHolder>() {
     }
 
     fun removeItem(item: IItem) {
-        val pos = items.indexOf(item)
         items.remove(item)
     }
 
