@@ -247,7 +247,7 @@ override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom:
 * 最后判断 drawable 在上下方位，则计算图片的高度和文字的高度，然后根据内容的总高度把 button 的内容全部贴上边缘显示
 
 到这里就做好了让 drawable 居中显示的准备工作，我们继续往下走：
-```android
+```java
 override fun onDraw(canvas: Canvas) {
     // 让图片和文字居中
     when {
