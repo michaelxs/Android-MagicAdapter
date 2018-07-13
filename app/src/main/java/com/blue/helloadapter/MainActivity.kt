@@ -21,47 +21,52 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        val items = mutableListOf<IItem>()
-        // add text item
-        (1..3).forEach {
-            items.add(TextItem("this is test item"))
-        }
-        // add button item
-        (1..2).forEach {
-            items.add(ButtonItem("this is button item"))
-        }
-        // add image item
-        (1..3).forEach {
-            items.add(ImageItem(R.drawable.s1))
-        }
-        // add text item
-        (1..5).forEach {
-            items.add(TextItem("this is test item"))
-        }
-        // add button item
-        (1..2).forEach {
-            items.add(ButtonItem("this is button item"))
-        }
-        // add image item
-        (1..3).forEach {
-            items.add(ImageItem(R.drawable.s1))
-        }
-
-        adapter.addItems(items)
-        adapter.onItemClickListener = object : OnItemClickListener {
-            override fun onItemClick(holder: ItemViewHolder) {
-                Toast.makeText(this@MainActivity, "onItemClick position = ${holder.adapterPosition}", Toast.LENGTH_SHORT).show()
+        val items = mutableListOf<IItem>().apply {
+            // add text item
+            (1..3).forEach {
+                add(TextItem("this is test item"))
+            }
+            // add button item
+            (1..2).forEach {
+                add(ButtonItem("this is button item"))
+            }
+            // add image item
+            (1..3).forEach {
+                add(ImageItem(R.drawable.s1))
+            }
+            // add text item
+            (1..5).forEach {
+                add(TextItem("this is test item"))
+            }
+            // add button item
+            (1..2).forEach {
+                add(ButtonItem("this is button item"))
+            }
+            // add image item
+            (1..3).forEach {
+                add(ImageItem(R.drawable.s1))
             }
         }
-        adapter.onItemLongClickListener = object : OnItemLongClickListener {
-            override fun onItemLongClick(holder: ItemViewHolder) {
-                Toast.makeText(this@MainActivity, "onItemLongClick position = ${holder.adapterPosition}", Toast.LENGTH_SHORT).show()
-            }
 
+        with(adapter) {
+            addItems(items)
+            onItemClickListener = object : OnItemClickListener {
+                override fun onItemClick(holder: ItemViewHolder) {
+                    Toast.makeText(this@MainActivity, "onItemClick position = ${holder.adapterPosition}", Toast.LENGTH_SHORT).show()
+                }
+            }
+            onItemLongClickListener = object : OnItemLongClickListener {
+                override fun onItemLongClick(holder: ItemViewHolder) {
+                    Toast.makeText(this@MainActivity, "onItemLongClick position = ${holder.adapterPosition}", Toast.LENGTH_SHORT).show()
+                }
+
+            }
         }
 
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = adapter
+        with(recyclerView){
+            layoutManager = LinearLayoutManager(this@MainActivity)
+            adapter = adapter
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
