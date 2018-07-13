@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group>
+        <item
+            android:id="@+id/delete"
+            android:title="delete item"
+            app:showAsAction="ifRoom" />
+        <item
+            android:id="@+id/addTv"
+            android:title="add text item"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/addBtn"
+            android:title="add button item"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/addIv"
+            android:title="add image item"
+            app:showAsAction="never" />
+    </group>
+</menu>
