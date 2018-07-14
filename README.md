@@ -110,6 +110,6 @@ adapter.onItemClickListener = object : OnItemClickListener {
     }
 }
 ```
-It’s over here, adding adapters to a RecycleView is as simple as that.
+**It's over here, adding a complex adapter to a recycleview can be as simple as that.**
 ## License
 [Apache-2.0](https://opensource.org/licenses/Apache-2.0)
