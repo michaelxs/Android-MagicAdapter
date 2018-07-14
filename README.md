@@ -3,18 +3,18 @@
 It's a super lightweight library that RecycleView adapter can be used quickly.<p>
 ![show.gif](https://upload-images.jianshu.io/upload_images/13146984-80c23921483ca64c.gif?imageMogr2/auto-orient/strip)
 ## Feature
-* Based on Kotlin
-* Based on Databinding
-* No longer need to maintain Adapter, there is only one MagicAdapter globally
-* No longer need to maintain ViewHolder
+* Based on `Kotlin`
+* Based on `Databinding`
+* No longer need to maintain adapter, there is only one `MagicAdapter` globally
+* No longer need to maintain viewholder
 * Support multiple item view types
 * Provide some basic callbacks
 * Easily expand headers and footers
-* Easily expand RecycleView animation and events
+* Easily expand recycleview animation and events
 * No reflection, high efficiency
 * Super lightweight, less than 34 KB
 ## Setup
-1.Add jcenter repository to root's build.gradle
+1. Add jcenter repository to root's build.gradle
 ```gradle
 allprojects {
     repositories {
@@ -23,7 +23,7 @@ allprojects {
     }
 }
 ```
-2.Turn on databinding in app's build.gradle
+2. Turn on databinding in app's build.gradle
 ```gradle
 android {
     ...
@@ -32,7 +32,7 @@ android {
     }
 }
 ```
-3.Add dependencies in app's build.gradle (please use the latest version)
+3. Add dependencies in app's build.gradle (please use the latest version)
 ```gradle
 dependencies {
     ...
@@ -40,7 +40,7 @@ dependencies {
 }
 ```
 ## Usage
-1.Create a RecycleView item layout file image_item_layout.xml
+1. Create a RecycleView item layout file image_item_layout.xml
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
@@ -67,7 +67,7 @@ dependencies {
 ```
 Please note that the name of the XXXItem declared here must be `item`
 ****
-2.Create a XXXItem corresponding to the item layout file, such ad ImageItem
+2. Create a XXXItem corresponding to the item layout file, such ad ImageItem
 ```kotlin
 class ImageItem(
         val resId: Int
@@ -90,7 +90,7 @@ Here is a description of the BaseItem:
 * Can get the ViewHolder corresponding to item
 * Can get the Databinding corresponding to item
 ****
-3.Create a TextItem and a ButtonItem in the same way, and then you can add data.
+3. Create a TextItem and a ButtonItem in the same way, and then you can add data.
 ```kotlin
 val adapter = MagicAdapter()
 adapter.addItem(ImageItem(R.drawable.s1))
@@ -99,7 +99,7 @@ adapter.addItem(ButtonItem())
 recyclerView.adapter = adapter
 ```
 ****
-4.If you need a callback, you can do it like this
+4. If you need a callback, you can do it like this
 ```kotlin
 adapter.onItemClickListener = object : OnItemClickListener {
     override fun onItemClick(holder: ItemViewHolder)
