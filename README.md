@@ -1,6 +1,6 @@
 # Android-MagicAdapter
 [[点击查看中文版]](https://www.jianshu.com/p/8be99ce68780)<p>
-It's a super lightweight library that recycleView adapter can be used quickly.<p>
+It is a super lightweight tool library that can quickly implement recycleview complex adapters.<p>
 ![show.gif](https://upload-images.jianshu.io/upload_images/13146984-80c23921483ca64c.gif?imageMogr2/auto-orient/strip)
 ## Feature
 * Based on `Kotlin`
