@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val adapter by lazy { MagicAdapter() }
+    private val mAdapter by lazy { MagicAdapter() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        with(adapter) {
+        with(mAdapter) {
             addItems(items)
             onItemClickListener = object : OnItemClickListener {
                 override fun onItemClick(holder: ItemViewHolder) {
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
 
         with(recyclerView){
             layoutManager = LinearLayoutManager(this@MainActivity)
-            adapter = adapter
+            adapter = mAdapter
         }
     }
 
@@ -77,20 +77,20 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.delete -> {
-                adapter.removeItem(0)
-                adapter.notifyItemRemoved(0)
+                mAdapter.removeItem(0)
+                mAdapter.notifyItemRemoved(0)
             }
             R.id.addTv -> {
-                adapter.addItem(1, TextItem("menu add text"))
-                adapter.notifyItemInserted(1)
+                mAdapter.addItem(1, TextItem("menu add text"))
+                mAdapter.notifyItemInserted(1)
             }
             R.id.addBtn -> {
-                adapter.addItem(1, ButtonItem("menu add text"))
-                adapter.notifyItemInserted(1)
+                mAdapter.addItem(1, ButtonItem("menu add text"))
+                mAdapter.notifyItemInserted(1)
             }
             R.id.addIv -> {
-                adapter.addItem(1, ImageItem(R.drawable.s2))
-                adapter.notifyItemInserted(1)
+                mAdapter.addItem(1, ImageItem(R.drawable.s2))
+                mAdapter.notifyItemInserted(1)
             }
         }
         return super.onOptionsItemSelected(item)
