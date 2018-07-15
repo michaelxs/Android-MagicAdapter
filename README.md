@@ -13,6 +13,7 @@ It is a super lightweight tool library that can quickly implement recycleview co
 * Easily expand recycleview animation and events
 * No reflection, high efficiency
 * Super lightweight, less than 34 KB
+* Minimum Android SDK: 14
 ## Setup
 1. Add jcenter repository to root's build.gradle
 ```gradle
@@ -36,7 +37,7 @@ android {
 ```gradle
 dependencies {
     ...
-    implementation 'com.xuyefeng:magicadapter:1.0.0'
+    implementation 'com.xuyefeng:magicadapter:1.0.1'
 }
 ```
 ## Usage
