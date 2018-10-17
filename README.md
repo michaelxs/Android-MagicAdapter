@@ -1,6 +1,6 @@
 # MagicAdapter
 [[点击查看中文版]](https://www.jianshu.com/p/8be99ce68780)<p>
-It is a super lightweight tool library that can quickly implement recycleview complex adapters.<p>
+This is a super lightweight tool library that can quickly implement recycleview complex adapters.<p>
 [![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=14) [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/michaelxs/Android-MagicAdapter/blob/master/LICENSE)<p>
 ![show.gif](https://upload-images.jianshu.io/upload_images/13146984-80c23921483ca64c.gif?imageMogr2/auto-orient/strip)
 ## Feature
