@@ -37,7 +37,7 @@ android {
 ```gradle
 dependencies {
     ...
-    implementation 'com.xuyefeng:magicadapter:1.0.1'
+    implementation 'com.xuyefeng:magicadapter:1.0.2'
 }
 ```
 ## Usage
