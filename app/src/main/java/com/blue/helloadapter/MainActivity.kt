@@ -6,7 +6,8 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import com.blue.magicadapter.*
+import com.blue.magicadapter.IItem
+import com.blue.magicadapter.MagicAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -50,20 +51,15 @@ class MainActivity : AppCompatActivity() {
 
         with(mAdapter) {
             addItems(items)
-            onItemClickListener = object : OnItemClickListener {
-                override fun onItemClick(holder: ItemViewHolder) {
-                    Toast.makeText(this@MainActivity, "onItemClick position = ${holder.adapterPosition}", Toast.LENGTH_SHORT).show()
-                }
+            itemClick = {
+                Toast.makeText(this@MainActivity, "onItemClick position = ${it.adapterPosition}", Toast.LENGTH_SHORT).show()
             }
-            onItemLongClickListener = object : OnItemLongClickListener {
-                override fun onItemLongClick(holder: ItemViewHolder) {
-                    Toast.makeText(this@MainActivity, "onItemLongClick position = ${holder.adapterPosition}", Toast.LENGTH_SHORT).show()
-                }
-
+            itemLongClick = {
+                Toast.makeText(this@MainActivity, "onItemLongClick position = ${it.adapterPosition}", Toast.LENGTH_SHORT).show()
             }
         }
 
-        with(recyclerView){
+        with(recyclerView) {
             layoutManager = LinearLayoutManager(this@MainActivity)
             adapter = mAdapter
         }

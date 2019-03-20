@@ -12,9 +12,10 @@ class MagicAdapter : RecyclerView.Adapter<ItemViewHolder>() {
     private val items = mutableListOf<IItem>()
 
     // 响应事件
-    var onItemClickListener: OnItemClickListener? = null
-    var onItemLongClickListener: OnItemLongClickListener? = null
-    var onViewChange: OnViewChange? = null
+    var itemClick: ((ItemViewHolder) -> Unit)? = null
+    var itemLongClick: ((ItemViewHolder) -> Unit)? = null
+    var viewAttached: ((ItemViewHolder) -> Unit)? = null
+    var viewDetached: ((ItemViewHolder) -> Unit)? = null
 
     override fun getItemCount() = items.size
 
@@ -24,10 +25,10 @@ class MagicAdapter : RecyclerView.Adapter<ItemViewHolder>() {
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.itemView.setOnClickListener {
-            onItemClickListener?.onItemClick(holder)
+            itemClick?.invoke(holder)
         }
         holder.itemView.setOnLongClickListener {
-            onItemLongClickListener?.onItemLongClick(holder)
+            itemLongClick?.invoke(holder)
             true
         }
         val item = items[holder.adapterPosition]
@@ -41,7 +42,7 @@ class MagicAdapter : RecyclerView.Adapter<ItemViewHolder>() {
         if (items.size > pos && pos >= 0) {
             items[pos].onViewAttachedToWindow(holder)
         }
-        onViewChange?.onViewAttachedToWindow(holder)
+        viewAttached?.invoke(holder)
     }
 
     override fun onViewDetachedFromWindow(holder: ItemViewHolder) {
@@ -49,7 +50,7 @@ class MagicAdapter : RecyclerView.Adapter<ItemViewHolder>() {
         if (items.size > pos && pos >= 0) {
             items[pos].onViewDetachedFromWindow(holder)
         }
-        onViewChange?.onViewDetachedFromWindow(holder)
+        viewDetached?.invoke(holder)
     }
 
     fun addItem(item: IItem) {
