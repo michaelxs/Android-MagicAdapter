@@ -102,13 +102,20 @@ recyclerView.adapter = adapter
 ****
 4. If you need a callback, you can do it like this
 ```kotlin
-adapter.onItemClickListener = object : OnItemClickListener {
-    override fun onItemClick(holder: ItemViewHolder)
-          val position = holder.adapterPosition
-          val item = holder.item
-          val binding = holder.binding
-          ...
-    }
+adapter.itemClick = {
+    val position = it.adapterPosition
+    val item = it.item
+    val binding = it.binding
+    ...
+}
+adapter.itemLongClick = {
+    ...
+}
+adapter.viewAttached = {
+    ...
+}
+adapter.viewDetached = {
+    ...
 }
 ```
 It's over here, adding a complex adapter to a recycleview can be as simple as that.
