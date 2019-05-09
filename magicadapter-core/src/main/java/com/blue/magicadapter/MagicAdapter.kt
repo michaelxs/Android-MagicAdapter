@@ -33,7 +33,7 @@ class MagicAdapter : RecyclerView.Adapter<ItemViewHolder>() {
         }
         val item = items[holder.adapterPosition]
         item.attachAdapter(this)
-        item.onBinding(holder.binding)
+        item.onBinding(holder)
         holder.bindTo(item)
     }
 

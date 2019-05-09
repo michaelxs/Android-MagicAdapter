@@ -1,7 +1,5 @@
 package com.blue.magicadapter
 
-import android.databinding.ViewDataBinding
-
 /**
  * 统一item接口
  */
@@ -25,7 +23,7 @@ interface IItem {
     /**
      * 绑定数据
      */
-    fun onBinding(binding: ViewDataBinding)
+    fun onBinding(holder: ItemViewHolder)
 
     /**
      * 视图附着
