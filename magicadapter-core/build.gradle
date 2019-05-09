@@ -40,7 +40,7 @@ publish {
     userOrg = 'andrew007vip007'
     groupId = 'com.xuyefeng'
     artifactId = 'magicadapter'
-    publishVersion = '1.0.2'
+    publishVersion = '1.0.3'
     desc = 'With the help of databinding to achieve the simplest universal adapter.'
     website = 'https://github.com/michaelxs/Android-MagicAdapter.git'
 }
