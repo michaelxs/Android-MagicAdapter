@@ -37,7 +37,7 @@ android {
 ```gradle
 dependencies {
     ...
-    implementation 'com.xuyefeng:magicadapter:1.0.2'
+    implementation 'com.xuyefeng:magicadapter:1.0.3'
 }
 ```
 ## Usage
@@ -76,11 +76,11 @@ class ImageItem(
 
     override fun getLayout(): Int = R.layout.image_item_layout
 
-    override fun onBinding(binding: ViewDataBinding) {
+    override fun onBinding(holder: ItemViewHolder) {
         (binding as ImageItemLayoutBinding).apply {
             iv.setImageResource(resId)
             iv.setOnClickListener {
-                Toast.makeText(iv.context, "click image on ${getViewHolder()?.adapterPosition}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(iv.context, "click image on ${holder.adapterPosition}", Toast.LENGTH_SHORT).show()
             }
         }
     }
