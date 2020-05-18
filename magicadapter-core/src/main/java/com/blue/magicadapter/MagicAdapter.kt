@@ -1,6 +1,8 @@
 package com.blue.magicadapter
 
+import android.support.annotation.IdRes
 import android.support.v7.widget.RecyclerView
+import android.view.View
 import android.view.ViewGroup
 
 /**
@@ -24,17 +26,47 @@ class MagicAdapter : RecyclerView.Adapter<ItemViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ItemViewHolder.create(parent, viewType)
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        holder.itemView.setOnClickListener {
+        setItemOnClick(holder, if (hasTag(holder.itemView, R.id.item_click)) null else View.OnClickListener {
             itemClick?.invoke(holder)
-        }
-        holder.itemView.setOnLongClickListener {
+        })
+        setItemOnLongClick(holder, if (hasTag(holder.itemView, R.id.item_long_click)) null else View.OnLongClickListener {
             itemLongClick?.invoke(holder)
             true
-        }
+        })
         val item = items[holder.adapterPosition]
         item.attachAdapter(this)
         item.onBinding(holder)
         holder.bindTo(item)
+    }
+
+    private fun hasTag(view: View, @IdRes tag: Int) = view.getTag(tag) != null
+
+    /**
+     * 设置 item 点击事件（复用）
+     */
+    private fun setItemOnClick(holder: ItemViewHolder, clickListener: View.OnClickListener?) {
+        var listener = clickListener
+        val tag = holder.itemView.getTag(R.id.item_click)
+        if (tag == null) {
+            holder.itemView.setTag(R.id.item_click, listener)
+        } else {
+            listener = tag as View.OnClickListener
+        }
+        holder.itemView.setOnClickListener(listener)
+    }
+
+    /**
+     * 设置 item 长按事件（复用）
+     */
+    private fun setItemOnLongClick(holder: ItemViewHolder, longClickListener: View.OnLongClickListener?) {
+        var listener = longClickListener
+        val tag = holder.itemView.getTag(R.id.item_long_click)
+        if (tag == null) {
+            holder.itemView.setTag(R.id.item_long_click, listener)
+        } else {
+            listener = tag as View.OnLongClickListener
+        }
+        holder.itemView.setOnLongClickListener(listener)
     }
 
     override fun onViewAttachedToWindow(holder: ItemViewHolder) {

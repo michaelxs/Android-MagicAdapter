@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item type="id" name="item_click"/>
+    <item type="id" name="item_long_click"/>
+
+</resources>
