@@ -116,4 +116,6 @@ class MagicAdapter : RecyclerView.Adapter<ItemViewHolder>() {
     fun clearItems() {
         items.clear()
     }
+
+    fun getItems() = items
 }
