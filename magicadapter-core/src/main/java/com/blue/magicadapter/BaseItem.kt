@@ -20,11 +20,9 @@ abstract class BaseItem : IItem {
     }
 
     override fun onViewAttachedToWindow(holder: ItemViewHolder) {
-        this.holder = holder
     }
 
     override fun onViewDetachedFromWindow(holder: ItemViewHolder) {
-        this.holder = holder
     }
 
     fun getAdapter(): MagicAdapter? = adapter
